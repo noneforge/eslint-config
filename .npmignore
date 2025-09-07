@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+node_modules/
+src/
+tests/
+.gitignore
+tsconfig.json
+package.json
+eslint.config.js

@@ -1,0 +1,86 @@
+{
+  "name": "@noneforge/eslint-config",
+  "version": "0.2.0",
+  "description": "TypeScript/JavaScript ESLint configuration with strict type checking and modern stylistic rules",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "javascript",
+    "javascript-eslint",
+    "typescript",
+    "typescript-eslint",
+    "stylistic",
+    "lint",
+    "code-style",
+    "code-quality",
+    "type-checking",
+    "flat-config",
+    "eslint9",
+    "noneforge"
+  ],
+  "author": "noneforge",
+  "license": "MIT",
+  "homepage": "https://github.com/noneforge/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noneforge/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noneforge/eslint-config/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "shx rm -rf dist",
+    "prebuild": "npm run clean",
+    "test": "npm run build && npm run lint:self",
+    "lint:self": "eslint ./src --max-warnings 0",
+    "prepublishOnly": "npm run test",
+    "version": "npm run build && git add -A dist",
+    "release": "npm version patch && npm publish --access public",
+    "release:minor": "npm version minor && npm publish --access public",
+    "release:major": "npm version major && npm publish --access public"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.35.0",
+    "@stylistic/eslint-plugin": "^5.3.1",
+    "eslint-plugin-jsdoc": "^54.3.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "typescript-eslint": "^8.42.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.22.0",
+    "typescript": ">=5.5.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "shx": "^0.4.0",
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

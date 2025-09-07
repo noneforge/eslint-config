@@ -447,7 +447,7 @@ const config = defineConfig(
   },
 
   {
-    name: 'noneforge/base-config',
+    name: 'noneforge/base-configs',
     files: ['*.config.{js,ts}', '*.config.*.{js,ts}', 'vite.config.ts', 'webpack.config.js'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',

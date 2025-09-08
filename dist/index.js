@@ -283,7 +283,12 @@ const config = defineConfig({
             },
         ],
         '@typescript-eslint/no-import-type-side-effects': 'error',
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        // Disabled: Both type and interface have valid use cases.
+        // Teams should choose based on specific needs:
+        // - Use interface for: extends, implements, public APIs
+        // - Use type for: unions, intersections, mapped types
+        // - Consider interface extends over type & for performance
+        '@typescript-eslint/consistent-type-definitions': 'off',
         '@typescript-eslint/consistent-generic-constructors': 'error',
         '@typescript-eslint/no-unnecessary-template-expression': 'error',
         '@typescript-eslint/naming-convention': [

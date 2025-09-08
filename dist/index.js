@@ -388,14 +388,16 @@ const config = defineConfig({
             {
                 publicOnly: true,
                 require: {
-                    ClassDeclaration: true,
-                    MethodDefinition: true,
+                    ClassDeclaration: false,
+                    MethodDefinition: false,
                     FunctionDeclaration: false,
                 },
                 contexts: [
-                    'TSInterfaceDeclaration',
-                    'TSTypeAliasDeclaration',
-                    'TSEnumDeclaration',
+                    'ExportNamedDeclaration > TSInterfaceDeclaration',
+                    'ExportNamedDeclaration > TSTypeAliasDeclaration',
+                    'ExportNamedDeclaration > TSEnumDeclaration',
+                    'ExportNamedDeclaration > FunctionDeclaration',
+                    'ExportNamedDeclaration > VariableDeclaration > ArrowFunctionExpression',
                 ],
             },
         ],
@@ -440,6 +442,22 @@ const config = defineConfig({
     rules: {
         '@typescript-eslint/no-require-imports': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+    },
+}, {
+    name: 'noneforge/lib-exports',
+    files: ['**/lib/**/*.ts', '**/public-api.ts'],
+    rules: {
+        'jsdoc/require-jsdoc': [
+            'error',
+            {
+                publicOnly: true,
+                require: {
+                    ClassDeclaration: true,
+                    MethodDefinition: true,
+                    FunctionDeclaration: true,
+                },
+            },
+        ],
     },
 });
 export default config;

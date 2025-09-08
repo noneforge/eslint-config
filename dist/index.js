@@ -442,9 +442,14 @@ const config = defineConfig({
     },
 }, {
     name: 'noneforge/base-configs',
-    files: ['*.config.{js,ts}', '*.config.*.{js,ts}', 'vite.config.ts', 'webpack.config.js'],
+    files: ['*.config.{js,ts}', '*.config.*.{js,ts}'],
     rules: {
+        'no-console': 'off',
+        '@stylistic/indent': 'off',
+        '@stylistic/max-len': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-require-imports': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
     },
 }, {

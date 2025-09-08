@@ -1,6 +1,6 @@
 {
   "name": "@noneforge/eslint-config",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "TypeScript/JavaScript ESLint configuration with strict type checking and modern stylistic rules",
   "keywords": [
     "eslint",

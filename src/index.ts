@@ -429,6 +429,10 @@ const config = defineConfig(
       'max-nested-callbacks': ['error', 10],
       'no-console': 'off',
 
+      // Stylistic rules
+      '@stylistic/indent': 'off',
+      '@stylistic/max-len': 'off',
+
       // TypeScript-specific rules
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -437,6 +441,7 @@ const config = defineConfig(
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-magic-numbers': 'off',
+      '@typescript-eslint/no-floating-promises': 'off',
 
       // JSDoc rules
       'jsdoc/require-jsdoc': 'off',

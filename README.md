@@ -84,9 +84,15 @@ export default [
 ### 🛡️ Core JavaScript Error Prevention
 **Essential rules to catch common JavaScript errors:**
 - **Syntax and Logic Errors**: `no-dupe-keys`, `no-unreachable`, `no-unsafe-negation`
-- **Variable Issues**: `no-undef`, `no-unused-vars`, `no-redeclare`
+- **Variable Issues**: `no-undef`, `no-unused-vars` (TypeScript uses `@typescript-eslint/no-unused-vars` with enhanced options), `no-redeclare`
 - **Async/Control Flow**: `no-async-promise-executor`, `no-await-in-loop`, `for-direction`
 - **Regex Safety**: `no-control-regex`, `no-invalid-regexp`, `no-regex-spaces`
+
+**Enhanced unused variables detection:**
+- Variables/args starting with `_` are ignored
+- Rest siblings in destructuring are ignored (`const { used, ...rest } = obj`)
+- Only checks function arguments after the last used one
+- Destructured array elements starting with `_` are ignored
 
 ### 🎯 TypeScript Type Safety
 **Strict type checking for maximum safety:**
@@ -94,6 +100,10 @@ export default [
 - **Type Assertions**: Enforces consistent assertions, prevents unnecessary type operations
 - **Nullish Handling**: `strict-boolean-expressions` with smart nullable object support
 - **Promise/Async**: `no-floating-promises`, `no-misused-promises`, `promise-function-async`
+- **Type Definitions**: `consistent-type-definitions` is disabled - choose `type` or `interface` based on your needs:
+  - Use `interface` for: object shapes that can be extended, implements clauses, public APIs
+  - Use `type` for: unions, intersections, mapped types, tuple types
+  - Consider `interface extends` over `type &` for better performance
 
 ```typescript
 // ❌ Strict boolean expressions prevent errors
@@ -184,10 +194,11 @@ async function good() {
 
 ### 📚 JSDoc Documentation
 **Smart documentation requirements:**
-- **Public API**: Warns for undocumented public classes/methods
-- **Interfaces & Types**: Requires JSDoc for type declarations
+- **Exported Elements Only**: JSDoc required only for explicitly exported interfaces, types, enums, functions, and arrow functions
+- **Library Files**: Stricter requirements for files in `lib/` directories and `public-api.ts` - all public classes, methods, and functions must be documented
 - **Alignment**: Enforces consistent JSDoc formatting
 - **TypeScript Integration**: Disables type annotations in JSDoc
+- **Flexible for Internal Code**: No JSDoc required for non-exported code, keeping internal implementation clean
 
 ### 🧪 Test File Rules
 **Relaxed rules for test files (`*.spec.ts`, `*.test.ts`):**
@@ -196,12 +207,16 @@ async function good() {
 - Console statements permitted
 - Higher callback nesting limit (10 levels)
 - Magic numbers allowed
+- **No indentation enforcement** (`@stylistic/indent: 'off'`) - flexible formatting for test readability
+- **No line length limits** (`@stylistic/max-len: 'off'`) - allows long test descriptions and assertions
+- **Floating promises allowed** (`@typescript-eslint/no-floating-promises: 'off'`) - simplified async test scenarios
 
 ### 📁 Special File Handling
 **Smart detection for different file types:**
 - **Config Files** (`*.config.js/ts`): Allows `require()`, relaxed return types
 - **Declaration Files** (`*.d.ts`): Minimal rules for ambient types
 - **JavaScript Files**: Basic linting without type checking
+- **Library Exports** (`lib/**/*.ts`, `public-api.ts`): Stricter JSDoc requirements - all public classes, methods, and functions must be documented for better API documentation
 
 ## Additional Examples
 

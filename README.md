@@ -12,6 +12,17 @@ Modern TypeScript/JavaScript ESLint configuration with strict type checking and 
 - ⚡ **Performance Optimized** - Uses `projectService` for faster type checking
 - 🔧 **Smart File Detection** - Different rules for tests, configs, and type definitions
 
+## Related Packages
+
+- [@noneforge/eslint-config-node](https://www.npmjs.com/package/@noneforge/eslint-config-node) - Node.js backend configuration
+- [@noneforge/eslint-config-angular](https://www.npmjs.com/package/@noneforge/eslint-config-angular) - Angular application configuration
+
+## Requirements
+
+- Node.js >=18.18.0
+- ESLint >=9.22.0
+- TypeScript >=5.5.0
+
 ## Installation
 
 ```bash
@@ -23,12 +34,6 @@ or with Yarn:
 ```bash
 yarn add --dev @noneforge/eslint-config eslint typescript
 ```
-
-## Requirements
-
-- Node.js >=18.18.0
-- ESLint >=9.22.0
-- TypeScript >=5.5.0
 
 ## Usage
 

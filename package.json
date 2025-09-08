@@ -11,6 +11,7 @@
     "typescript",
     "typescript-eslint",
     "stylistic",
+    "prettier",
     "lint",
     "code-style",
     "code-quality",
